@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Training</title>
+    <script src="https://kit.fontawesome.com/0c24a965d9.js" crossorigin="anonymous"></script>
+
+
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(242, 242, 242);
+        }
+
+        /*                                               SIDEBAR                                              */
+
+        .sidenav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #222;
+            overflow-x: hidden;
+            padding-top: 20px;
+            font-family: Avenir;
+        }
+
+        .sidenav a {
+            padding: 27px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+
+        .sidebar a.active {
+            background-color: rgb(242, 242, 242);
+            color: white;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+            background-color: grey;
+        }
+
+        .main {
+            margin-left: 260px; /* Same as the width of the sidenav */
+            font-size: 15px; /* Increased text to enable scrolling */
+            padding: 0px 0px;
+        }
+
+        @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+        }
+
+        /*                                               TOPBAR                                              */
+
+        .topnav {
+            overflow: hidden;
+            background-color: #222;
+        }
+
+        .topnav a {
+            float: right;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 0px 50px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: white;
+            color: black;
+        }
+
+        /*                                               FOUR CASES                                              */
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+            padding-top: 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {margin: 0 -5px;}
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            height: 110px;
+            text-align: center;
+            background-color: white;
+            font-family: Avenir;
+            text-align:justify;
+            text-justify: inter-word;
+            vertical-align: middle;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: non;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 3px;
+        }
+
+        /*                                               DROPUP                                              */
+
+        .dropbtn {
+            background-color: #222;
+            color: white;
+            width: 250px;
+            height: 50px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 0;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: grey;
+        }
+
+
+        .dropup {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        .dropup-content {
+            display: none;
+            position: absolute;
+            background-color: #222;
+            color:white;
+            bottom: 50px;
+            min-width: 250px;
+            overflow: auto;
+            box-shadow: 0px 4px 8px 4px white;
+            z-index: 1;
+        }
+
+
+        .dropup-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropup a:hover {background-color: #ddd;}
+
+        .show {display: block;}
+
+    </style>
+</head>
+
+<body>
+    <!--commentaire-->
+    <div class="topnav">
+        <a href="#comparaison">
+            <p>Comparaison</p>
+            <p style="color:rgb(133, 133, 133)">Fonds</p>
+        </a>
+        <a href="#eurostoxxnr">
+            <p>Eurostoxx NR</p>
+            <p style="color:rgb(133, 133, 133)">Indice</p>
+        </a>
+        <a class="active" href="#active">
+            <p>Active</p>
+            <p style="color:rgb(133, 133, 133)">Diff.</p>
+        </a>
+    </div>
+  
+    <!-- Load an icon library -->
+
+    <div class="sidenav">
+        <div style="text-align:center">
+            <a href="https://greenrock.nx.digital/"target=_blank>
+                <img src="greenrock.png" width = 100% border = 0 alt="greerock">
+            </a>
+        </div>
+        <a href="#fonds"><i class="fa fa-fw fa-wallet"></i> Fonds</a>
+        <a href="#vuesdensemble"><i class="fa-solid fa-square-poll-horizontal"></i> Vues d'ensemble</a>
+        <a href="#Performance"><i class="fa-solid fa-arrow-trend-up"></i> Performance</a>
+        <a href="#contribution"><i class="fa-solid fa-magnifying-glass"></i> Contribution</a>
+        <a href="#attribution"><i class="fa-solid fa-chart-column"></i> Attribution</a>
+        <a href="#allocation"><i class="fa-solid fa-chart-pie"></i> Allocation</a>
+        <a href="#lignealigne"><i class="fa-solid fa-bars-staggered"></i> Ligne-à-ligne</a>
+        <a href="#documents"><i class="fa-solid fa-folder"></i> Documents</a>
+        <div syle="float: bottom;";class="dropup">
+            <button onclick="myFunction()" class="dropbtn">Lab <i style="float: right" class="fa-solid fa-circle-chevron-up"></i></button>
+            <div id="myDropup" class="dropup-content">
+                <a href="#clientedition"><i class="fa-solid fa-arrow-right-arrow-left"></i> Client Edition</a>
+                <a href="#dataaudit"><i class="fa-solid fa-coins"></i> Data Audit</a>
+                <a href="#dataquality"><i class="fa-solid fa-list-check"></i> Data Quality</a>
+                <a href="#Traductions"><i class="fa-solid fa-globe"></i> Traductions</a>
+                <a href="#Deconexion"><i class="fa-solid fa-arrow-right-from-bracket"></i> Deconexion</a>
+            </div>
+        </div>
+        
+    </div>
+
+
+  
+    <div class="main">
+
+        <h1>Performance</h1>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <table>
+                        <tr>
+                            <th>Performance</th>
+                            <th style="color:#00b98b">-10,34%</th>
+                        </tr>
+                        <tr style="color:#979797">
+                            <td>Performance indice</td>
+                            <td>-3,99%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        
+            <div class="column">
+                <div class="card">
+                    <table>
+                        <tr>
+                            <th>Volatilité</th>
+                            <th style="color:#00b98b">6,30%</th>
+                        </tr>
+                        <tr style="color:#979797">
+                            <td>Volatilité de l'indice</td>
+                            <td>6,96%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="card">
+                    <table>
+                        <tr>
+                           <th>Drawdown</th>
+                           <th style="color:#00b98b">-12,39%</th>
+                        </tr>
+                        <tr style="color:#979797">
+                            <td>Drawdown indice</td>
+                            <td>-8,06%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="card">
+                    <table>
+                        <tr>
+                            <th>Tracking error</th>
+                            <th style="color:#00b98b">10,32%</th>
+                        </tr>
+                        <tr style="color:#979797">
+                            <td>Ratio d'information</td>
+                            <td>-</td>
+                        </tr>
+                        <tr style="color:#979797">
+                            <td>Ratio de sharpe</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-top: 20px;">
+            <img style = "box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);width: 99.3%; height: 95%;" src="tableau.png" alt="tableaux" class="center">
+        </div>
+    </div>
+
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropup content */
+        function myFunction() {
+        document.getElementById("myDropup").classList.toggle("show");
+        }
+        
+        // Close the dropup if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropups = document.getElementsByClassName("dropup-content");
+            var i;
+            for (i = 0; i < dropups.length; i++) {
+            var openDropup = dropups[i];
+            if (openDropup.classList.contains('show')) {
+                openDropup.classList.remove('show');
+            }
+            }
+        }
+        }
+    </script>
+
+</body>
+</html>
