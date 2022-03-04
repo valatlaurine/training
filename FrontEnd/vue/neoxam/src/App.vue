@@ -43,18 +43,19 @@ watch(select_value, async (newselect_value, oldselect_value) => {
           <KPI :title="'perfor'" :mainnum="'30%'" :scdtxt="'indice n°3'" :scdnum="'31%'"/>
           <KPI :title="'perform'" :mainnum="'40%'" :scdtxt="'indice n°4'" :scdnum="'41%'" :thrdtxt="'indice bis'" :thrdnum="'12%'"/>
         </div>
-        <div class=" flex flex-1 bg-white shadow-lg">
+        <div class=" flex flex-1 flex-col bg-white shadow-lg">
           <!-- <h1>Performances historiques</h1> -->
           <div class="flex flex-row max-h-7">
-            <h1>Laurine2</h1>
+            <h1>Performance</h1>
             <select v-model="select_value">
               <option value="FUND_1"> fonds 1</option>
               <option value="FUND_2"> fonds 2</option>
            </select>
-
           </div>
- 
-          <!-- <PerfChart/> -->
+          <div class="flex flex-1">
+             <PerfChart :serie_name="select_value" :data="data" v-if="data.length"/>
+          </div>
+          
 
         </div> 
       
