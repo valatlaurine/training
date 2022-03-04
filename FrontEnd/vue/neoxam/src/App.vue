@@ -2,20 +2,35 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 
-
+import {onMounted, ref, watch} from 'vue'
 import TopNav from './components/TopNav.vue'
 import SideNav from './components/SideNav.vue'
 import KPI from './components/KPI.vue'
 import PerfChart from './components/PerfChart.vue'
 
+const select_value = ref('FUND_1')
+const data = ref([])
 
+const query_data = async (fund_id) => {
+  const req = 'http://localhost:4000/data?fund_id='+fund_id
+  return  await (await fetch(req)).json();
+}
+
+onMounted( async () => {
+  console.log('mounted')
+  data.value = await query_data(select_value.value)
+}) 
+
+// watch works directly on a ref
+watch(select_value, async (newselect_value, oldselect_value) => {
+  data.value = await query_data(select_value.value)
+})
 
 </script>
 
 <template>
 
     <TopNav/>
-  
 
       <SideNav/>
       <div class="rightside flex flex-col p-5 w-full">
@@ -28,10 +43,18 @@ import PerfChart from './components/PerfChart.vue'
           <KPI :title="'perfor'" :mainnum="'30%'" :scdtxt="'indice n°3'" :scdnum="'31%'"/>
           <KPI :title="'perform'" :mainnum="'40%'" :scdtxt="'indice n°4'" :scdnum="'41%'" :thrdtxt="'indice bis'" :thrdnum="'12%'"/>
         </div>
-        <h1>Laurine2</h1>
-        <div class=" flex flex-1  bg-blue-800 shadow-lg">
+        <div class=" flex flex-1 bg-white shadow-lg">
           <!-- <h1>Performances historiques</h1> -->
-          <PerfChart/>
+          <div class="flex flex-row max-h-7">
+            <h1>Laurine2</h1>
+            <select v-model="select_value">
+              <option value="FUND_1"> fonds 1</option>
+              <option value="FUND_2"> fonds 2</option>
+           </select>
+
+          </div>
+ 
+          <!-- <PerfChart/> -->
 
         </div> 
       

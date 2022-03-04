@@ -8,13 +8,11 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-
 console.log('hello')
 
-import {onMounted, ref} from 'vue'
+import {onMounted, ref, computed} from 'vue'
 import Chart from 'chart.js'
-import {perfChartData} from '../perf-data.js'
+// import {perfChartData} from '../perf-data.js'
 
 const perf = ref(null)
 const test = ref(0)
@@ -29,9 +27,9 @@ function toggleFund(){
 
 
 onMounted( async () => {
-  console.log('mounted')
-  var perfchart = new Chart(
-  perf.value, perfChartData(funded_1));
+  // console.log('mounted')
+  // var perfchart = new Chart(
+  // perf.value, perfChartData(funded_1));
 
 }) 
 

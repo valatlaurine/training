@@ -9,7 +9,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/data', (req, res) => {
-    res.send(data)
+  console.log(req.url)
+  console.log(req.query)
+  const response = data.filter(d => d.fund_id === req.query.fund_id)
+  res.send(response)
 })
 
 app.listen(4000)
