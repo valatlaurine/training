@@ -1,0 +1,153 @@
+[
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-01",
+      "nav": 100
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-02",
+      "nav": 101
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-03",
+      "nav": 102
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-04",
+      "nav": 103
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-05",
+      "nav": 104
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-06",
+      "nav": 105
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-07",
+      "nav": 106
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-08",
+      "nav": 107
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-09",
+      "nav": 108
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-10",
+      "nav": 109
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-11",
+      "nav": 104
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-12",
+      "nav": 103
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-13",
+      "nav": 106
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-14",
+      "nav": 107
+    },
+    {
+      "fund_id": "FUND_1",
+      "date": "2021-01-15",
+      "nav": 108
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-01",
+      "nav": 900
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-02",
+      "nav": 901
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-03",
+      "nav": 902
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-04",
+      "nav": 903
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-05",
+      "nav": 904
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-06",
+      "nav": 905
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-07",
+      "nav": 906
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-08",
+      "nav": 907
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-09",
+      "nav": 908
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-10",
+      "nav": 909
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-11",
+      "nav": 904
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-12",
+      "nav": 903
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-13",
+      "nav": 906
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-14",
+      "nav": 907
+    },
+    {
+      "fund_id": "FUND_2",
+      "date": "2021-01-15",
+      "nav": 908
+    }
+  ]
+
