@@ -7,7 +7,9 @@ import TopNav from './components/TopNav.vue'
 import SideNav from './components/SideNav.vue'
 import KPI from './components/KPI.vue'
 import PerfChart from './components/PerfChart.vue'
-import PerfChart2 from './components/PerfChart2.vue'
+
+
+
 </script>
 
 <template>

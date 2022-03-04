@@ -1,26 +1,85 @@
-export const perfChartData = {
-    type: "line",
+
+
+
+const response = await fetch('http://localhost:4000/');
+const data = await response.json();
+
+const date = [];
+const nav_1 = [];
+const nav_2 = [];
+
+for (let i = 0; i < 15; i++) date.push(data[i]['date']);
+for (let i = 0; i < 15; i++) nav_1.push(data[i]['nav']);
+for (let i = 15; i < 30; i++) nav_2.push(data[i]['nav']);
+
+
+
+// const data_1 = data.filter(function (i,n){
+//   return JSON.parse(data).fund_id==='FUND_1';
+// });
+
+// const data_2 = data.filter(function (i,n){
+//   return JSON.parse(data).fund_id==='FUND_2';
+// });
+
+// export const perfChartData = {
+//     type: "line",
+//     data: {
+//       labels: date,
+//       datasets: [
+//         {
+//           label: "Fund_1",
+//           data: nav_2,
+//           backgroundColor: null,
+//           borderColor: "#36495d",
+//           borderWidth: 2,
+//           fill: false,
+//           pointRadius: 0,
+//           tension: 0, //straight
+//         }
+//         // ,
+//         // {
+//         //   label: "Fund_2",
+//         //   data: nav_2,
+//         //   backgroundColor: null,
+//         //   borderColor: "#47b784",
+//         //   borderWidth: 2,
+//         //   fill: false, //no fill under line
+//         //   pointRadius: 0, //no point
+//         //   tension: 0, //straight
+//         // }
+//       ]
+//     },
+//     options: {
+//       responsive: true,
+//       maintainAspectRatio: false,
+//       lineTension: 1,
+//       parsing: false,
+//       animation: false
+//     }
+//   };
+  
+  export function perfChartData(funded_1) {
+    var nav=[];
+    if (funded_1===true) { 
+      nav = nav_1;
+    } else {
+      nav = nav_2;
+    }
+
+    return {
+      type: "line",
     data: {
-      labels: ["1 Janv 2020", "3 Janv 2020", "5 Janv 2020", "7 Janv 2020", "9 Janv 2020", "11 Janv 2020", "13 Janv 2020", "15 Janv 2020","17 Janv 2020", "19 Janv 2020", "21 Janv 2020", "23 Janv 2020", "25 Janv 2020", "27 Janv 2020", "29 Janv 2020", "31 Janv 2020"],
+      labels: date,
       datasets: [
         {
-          label: "Indice",
-          data: [100, 103, 106, 104, 101, 99, 95, 93, 96, 95, 94, 90, 88, 85, 81, 83],
+          label: "Fund",
+          data: nav,
           backgroundColor: null,
           borderColor: "#36495d",
           borderWidth: 2,
           fill: false,
           pointRadius: 0,
-          tension: 0, //straight
-        },
-        {
-          label: "Fond",
-          data: [100, 100, 101, 100, 99, 95, 89, 87, 90, 89, 88, 83, 80, 75, 71, 75],
-          backgroundColor: null,
-          borderColor: "#47b784",
-          borderWidth: 2,
-          fill: false, //no fill under line
-          pointRadius: 0, //no point
           tension: 0, //straight
         }
       ]
@@ -32,7 +91,9 @@ export const perfChartData = {
       parsing: false,
       animation: false
     }
+    }
+    
   };
 
 
-  export default perfChartData;
+  export default perfChartData();
