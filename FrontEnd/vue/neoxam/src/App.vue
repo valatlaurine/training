@@ -12,12 +12,12 @@ const select_value = ref('FUND_1')
 const data = ref([])
 
 const query_data = async (fund_id) => {
+  console.log('QUERY:',fund_id)
   const req = 'http://localhost:4000/data?fund_id='+fund_id
   return  await (await fetch(req)).json();
 }
 
 onMounted( async () => {
-  console.log('mounted')
   data.value = await query_data(select_value.value)
 }) 
 
@@ -53,7 +53,7 @@ watch(select_value, async (newselect_value, oldselect_value) => {
            </select>
           </div>
           <div class="flex flex-1">
-             <PerfChart :serie_name="select_value" :data="data" v-if="data.length"/>
+             <PerfChart :key="data[0].fund_id" :serie_name="select_value" :data="data" v-if="data.length"/>
           </div>
           
 

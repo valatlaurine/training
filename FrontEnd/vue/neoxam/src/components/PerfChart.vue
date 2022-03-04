@@ -16,9 +16,12 @@ const props = defineProps({
 console.log('TEST')
 console.log(props.serie_name)
 
-import {onMounted, ref, computed} from 'vue'
+import {onMounted, ref } from 'vue'
 import Chart from 'chart.js'
 const perf = ref(null)
+
+
+// console.log(input_data.value)
 
 const serie_name = props.serie_name
 const labels = props.data.map(d => d.date)
