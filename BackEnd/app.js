@@ -5,7 +5,7 @@ var app = express();app.use(cors());
 
 
 app.get('/', (req, res) => {
-  res.json(data)
+  res.send('running')
 })
 
 app.get('/data', (req, res) => {
@@ -13,3 +13,4 @@ app.get('/data', (req, res) => {
 })
 
 app.listen(4000)
+console.log('Running on 4000')
